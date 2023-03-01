@@ -1,23 +1,18 @@
 import { useState } from 'react'
-import './App.css'
+import CounterButton from './components/CounterButton'
+import CounterText from './components/CounterText'
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+    <div className="text-white absolute inset-0 flex flex-col justify-center items-center">
+      <CounterText count={count}/>
+      <div className="flex gap-2">
+        <CounterButton textButton="Descrementar" onClick={() => {setCount(count - 1)}}/>
+        <CounterButton textButton="Incrementar" style={"bg-green-600 shadow-green-500"} onClick={() => {setCount(count + 1)}}/>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
